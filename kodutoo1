@@ -3,7 +3,7 @@ def arvuta_kmi(kaal, pikkus):
     kmi = kaal / (pikkus ** 2)
     return kmi
 
-# Funktsioon KMI tulemuse hindamiseks
+
 def hinda_kmi(kmi):
     if kmi < 18.5:
         return "Alakaal"
@@ -20,11 +20,10 @@ while True:
     kaal = float(input("Sisesta oma kaal kilogrammides: "))
     pikkus = float(input("Sisesta oma pikkus meetrites: "))
 
-    # Arvutame KMI ja hindame tulemust
+    
     kmi = arvuta_kmi(kaal, pikkus)
     tulemus = hinda_kmi(kmi)
 
-    # Kuvame tulemuse
     print(f"Sinu kehamassiindeks on: {kmi:.2f}")
     print(f"See tähendab: {tulemus}")
     
