@@ -1,35 +1,36 @@
-# Funktsioon kehamassiindeksi (KMI) arvutamiseks
-def arvuta_kmi(kaal, pikkus):
-    kmi = kaal / (pikkus ** 2)
-    return kmi
+# Function to calculate Body Mass Index (BMI)
+def calculate_bmi(weight, height):
+    bmi = weight / (height ** 2)
+    return bmi
 
-
-def hinda_kmi(kmi):
-    if kmi < 18.5:
-        return "Alakaal"
-    elif 18.5 <= kmi < 24.9:
-        return "Normaalkaal"
-    elif 25 <= kmi < 29.9:
-        return "Ülekaal"
+# Function to assess BMI result
+def assess_bmi(bmi):
+    if bmi < 18.5:
+        return "Underweight"
+    elif 18.5 <= bmi < 24.9:
+        return "Normal weight"
+    elif 25 <= bmi < 29.9:
+        return "Overweight"
     else:
-        return "Rasvumine"
+        return "Obesity"
 
-# Tsükkel, et kasutaja saaks teha mitu arvutust
+# Loop for the user to perform multiple calculations
 while True:
-    # Küsime kasutajalt sisendit
-    kaal = float(input("Sisesta oma kaal kilogrammides: "))
-    pikkus = float(input("Sisesta oma pikkus meetrites: "))
+    # Asking for user input
+    weight = float(input("Enter your weight in kilograms: "))
+    height = float(input("Enter your height in meters: "))
 
-    
-    kmi = arvuta_kmi(kaal, pikkus)
-    tulemus = hinda_kmi(kmi)
+    # Calculating BMI and assessing the result
+    bmi = calculate_bmi(weight, height)
+    result = assess_bmi(bmi)
 
-    print(f"Sinu kehamassiindeks on: {kmi:.2f}")
-    print(f"See tähendab: {tulemus}")
+    # Displaying the result
+    print(f"Your Body Mass Index (BMI) is: {bmi:.2f}")
+    print(f"This means: {result}")
     
-    # Küsime, kas kasutaja soovib teha uue arvutuse
-    uus_arvutus = input("Kas soovid teha uue arvutuse? (jah/ei): ").lower()
+    # Asking the user if they want to perform another calculation
+    new_calculation = input("Do you want to calculate again? (yes/no): ").lower()
     
-    if uus_arvutus != "jah":
-        print("Programmi lõpetamine.")
-        break  # Lõpetab tsükli, kui vastus ei ole 'jah'
+    if new_calculation != "yes":
+        print("Exiting the program.")
+        break  # Ends the loop if the answer is not 'yes'
